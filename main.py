@@ -63,10 +63,10 @@ def predict(x):
 
 model = Transformer()
 loss_func = torch.nn.CrossEntropyLoss()
-optim = torch.optim.Adam(model.parameters(), lr=2e-3)
+optim = torch.optim.Adam(model.parameters(), lr=1e-3)
 sched = torch.optim.lr_scheduler.StepLR(optim, step_size=3, gamma=0.5)
 
-for epoch in range(1):
+for epoch in range(10):
     for i, (x, y) in enumerate(loader):
         # x = [8, 50]
         # y = [8, 51]

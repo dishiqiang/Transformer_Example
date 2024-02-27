@@ -56,7 +56,7 @@ class DecoderLayer(torch.nn.Module):
         # [b, 50, 32],[b, 50, 32] -> [b, 50, 32]
         y = self.mh2(y, x, x, mask_pad_x)
 
-        # 全连接输出,维度不变
+        # 全连接输出,维度变化
         # [b, 50, 32] -> [b, 50, 32]
         y = self.fc(y)
 
@@ -106,7 +106,7 @@ class Transformer(torch.nn.Module):
         # [b, 50, 32],[b, 50, 32] -> [b, 50, 32]
         y = self.decoder(x, y, mask_pad_x, mask_tril_y)
 
-        # 全连接输出,维度不变
+        # 全连接输出,维度变化
         # [b, 50, 32] -> [b, 50, 39]
         y = self.fc_out(y)
 
